@@ -12,7 +12,8 @@ function App() {
 
   return (
     <>
-     <input type="text" name="" id="" />
+     <input type="text" name="" id="" placeholder='tilbakemelding'/>
+     <button type="submit">send</button>
     </>
   )
 }
