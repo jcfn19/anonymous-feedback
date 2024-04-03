@@ -4,8 +4,10 @@ function App() {
 
   return (
     <>
-     <input type="text" name="" id="" placeholder='tilbakemelding'/>
+    <form action="/ftmelding" method="post">
+     <input type="text" name="tilbakemelding" id="" placeholder='tilbakemelding'/>
      <button type="submit">send</button>
+    </form>
     </>
   )
 }

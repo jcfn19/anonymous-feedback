@@ -1,20 +1,40 @@
-import express from 'express';
-import sqlite3 from 'better-sqlite3';
-const app = express();
+import express, { Express, Request, Response } from 'express';
+import sqlite3, { Database } from 'better-sqlite3';
+
+const app: Express = express();
+const db: Database = sqlite3('gfeedback.db', { verbose: console.log });
+
+console.log("Hello World!");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const db = sqlite3('gfeedback.db', {verbose: console.log})
-
-function rootRoute(_request: unknown, response: { send: (arg0: unknown[]) => void; }) {
-  const sql = db.prepare('SELECT * FROM gfmelding');
-  const info = sql.all();
-  response.send(info);
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function rootRoute(_request: Request, response: Response): any {
+    const sql = db.prepare('SELECT * FROM feedback');
+    const info = sql.all();
+    response.send(info);
 }
 
-app.get('/gfmelding', rootRoute)
+app.get('/feedback', rootRoute);
+
+import path from 'path';
+const publicDirectoryPath = path.join(__dirname, "./src");
+app.use(express.static(publicDirectoryPath));
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function formhandlermelding(request: Request, response: Response): any {
+    console.log(request.body);
+    const msql = db.prepare('INSERT INTO feedback (gfmelding) VALUES (?)');
+    msql.run(request.body.tilbakemelding);
+
+    response.send("feedback sendt");
+}
+
+app.post('/ftmelding', formhandlermelding);
 
 app.listen(3000, () => {
-  console.log('Server is up on port 3000')
-}) 
+    console.log('Server is up on port 3000');
+});
+
+// module.exports = app
