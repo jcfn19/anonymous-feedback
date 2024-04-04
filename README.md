@@ -1,5 +1,5 @@
-## ==the ts version does not fully work!==
- ==sending the form to the database does not work!==
+## == the ts version does not fully work! ==
+ == sending the form to the database does not work! ==
 
 # glupus-feedback
 
