@@ -19,8 +19,10 @@ function rootRoute(_request: Request, response: Response): any {
 app.get('/feedback', rootRoute);
 
 import path from 'path';
+// import bodyParser from 'body-parser';
 const publicDirectoryPath = path.join(__dirname, "./src");
 app.use(express.static(publicDirectoryPath));
+// app.use(bodyParser.json());
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function formhandlermelding(request: Request, response: Response): any {
