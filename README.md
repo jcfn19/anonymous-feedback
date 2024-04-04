@@ -14,8 +14,11 @@
  this is the database structure
 
  | id | feedback |
+ 
  | -----/----- | -----/----- |
+ 
  | -----/----- | -----/----- |
+ 
  | -----/----- | -----/----- |
 
  the actual database waries from folder to folder this is just an example of the database structure.
