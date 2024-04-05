@@ -3,8 +3,11 @@ const express = require('express');
 const app = express();
 const sqlite3 = require('better-sqlite3');
 const db = sqlite3('feedbackv.db', {verbose: console.log})
+const currentTime = new Date();
 
-console.log("Hello World!");
+// console.log("currentTime: " + currentTime.getHours() + ":" + currentTime.getMinutes() + ":" + currentTime.getSeconds());
+let tid = currentTime.getHours() + ":" + currentTime.getMinutes() + ":" + currentTime.getSeconds();
+// console.log("Hello World!");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -23,8 +26,9 @@ app.use(express.static(publicDirectoryPath))
 
 function formhandlermelding(request, response) {
     console.log(request.body);
-    const msql = db.prepare('INSERT INTO fmelding (message) VALUES (?)');
-    const info = msql.run(request.body.tilbakemelding);
+    const msql = db.prepare('INSERT INTO fmelding (message, time) VALUES (?, ?)');
+    console.log(window.location.href)
+    const info = msql.run(request.body.tilbakemelding, tid);//document.referrer/window.location.href for url
 
     response.send("feedback sendt")
 }
@@ -33,4 +37,4 @@ app.post('/ftmelding', formhandlermelding);
 
 app.listen(3000, () => {
     console.log('Server is up on port 3000')
-}) 
+})
