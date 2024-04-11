@@ -5,6 +5,7 @@ const app = express();
 app.use(useragent.express());
 const sqlite3 = require('better-sqlite3');
 const db = sqlite3('feedbackv.db', {verbose: console.log})
+const bodyParser = require('body-parser');
 
 const currentTime = new Date();
 
@@ -12,8 +13,8 @@ const currentTime = new Date();
 let tid = currentTime.getHours() + ":" + currentTime.getMinutes() + ":" + currentTime.getSeconds();
 // console.log("Hello World!");
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 function rootRoute(request, response) {
     const sql = db.prepare('SELECT * FROM fmelding');
@@ -33,16 +34,21 @@ app.get('/fos', (req, res) => {
     // Get the operating system information
     const os = userAgent.os;
     
-    res.send('Operating System: ' + os);
+    // res.send('Operating System: ' + os);
+    console.log(JSON.stringify(os))
+    // let op = os
+    // console.log(op)
 });
 
-function formhandlermelding(request, response, req) {
+function formhandlermelding(request, response, req, res) {
     const userAgent = req.useragent;
     const os = userAgent.os;
+    // JSON.stringify(os);
+    // let op = os;
     console.log(request.body);
     const msql = db.prepare('INSERT INTO fmelding (message, time, os) VALUES (?, ?, ?)');
-    console.log(window.location.href)
-    const info = msql.run(request.body.tilbakemelding, tid, res.send('Operating System: ' + os));//window.location.href for url
+    // console.log(window.location.href) for url
+    const info = msql.run(request.body.tilbakemelding, tid, os);
 
     response.send("feedback sendt")
 }
