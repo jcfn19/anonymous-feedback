@@ -43,8 +43,8 @@ function formhandlermelding(request, response, req, res) {
     // JSON.stringify(os);
     console.log(request.body);
     const msql = db.prepare('INSERT INTO fmelding (message, time, os) VALUES (?, ?, ?)');
-    // console.log(window.location.href)
-    const info = msql.run(request.body.tilbakemelding, tid, JSON.parse(os));//res.send('Operating System: ' + os)
+    // console.log(window.location.href / document.history / document.referrer) for url
+    const info = msql.run(request.body.tilbakemelding, tid, JSON.stringify(os));
 
     response.send("feedback sendt")
 }
