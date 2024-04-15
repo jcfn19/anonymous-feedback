@@ -37,14 +37,14 @@ app.get('/fos', (req, res) => {
    console.log(JSON.stringify(os))
 });
 
-function formhandlermelding(request, response, req, res) {
-    const userAgent = req.useragent;
-    const os = userAgent.os;
+function formhandlermelding(request, response) {// , req, res for useragent
+    // const userAgent = req.useragent;
+    // const os = userAgent.os;
     // JSON.stringify(os);
     console.log(request.body);
-    const msql = db.prepare('INSERT INTO fmelding (message, time, os) VALUES (?, ?, ?)');
+    const msql = db.prepare('INSERT INTO fmelding (message, time) VALUES (?, ?)');
     // console.log(window.location.href / document.history / document.referrer) for url
-    const info = msql.run(request.body.tilbakemelding, tid, JSON.stringify(os));
+    const info = msql.run(request.body.tilbakemelding, tid);// JSON.stringify(os) for os
 
     response.send("feedback sendt")
 }
