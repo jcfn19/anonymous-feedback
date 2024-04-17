@@ -1,3 +1,4 @@
+import 'vite/modulepreload-polyfill'
 import express, { Express, Request, Response } from 'express';
 import sqlite3, { Database } from 'better-sqlite3';
 
@@ -35,8 +36,8 @@ function formhandlermelding(request: Request, response: Response): any {
 
 app.post('/ftmelding', formhandlermelding);
 
-app.listen(3000, () => {
-    console.log('Server is up on port 3000');
-});
+// app.listen(3000, () => {
+//     console.log('Server is up on port 3000');
+// });
 
 // module.exports = app
