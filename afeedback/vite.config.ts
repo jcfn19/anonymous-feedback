@@ -9,7 +9,7 @@ export default defineConfig({
     manifest: true,
     rollupOptions: {
       // overwrite default .html entry
-      input: '../gfeedback/index.ts',
+      input: '../afeedback/index.ts',
     },
   },
 })
