@@ -8,7 +8,7 @@
 
  == the backend is now running however it seams that the backend is not working. so it still deosn't work sending the form to the db! ==
 
- == when cloneing this repo you need to run 'npm run build' to get the dist folder! ==
+ == when cloneing this repo you need to run `npm run build` to get the dist folder! ==
 
 
 # annonymus-feedback
