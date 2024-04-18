@@ -9,7 +9,7 @@ export default defineConfig({
     manifest: true,
     rollupOptions: {
       // overwrite default .html entry
-      input: 'C:/Users/jcfno/OneDrive/Documents/glupus feedback/gfeedback/index.ts',
+      input: '../gfeedback/index.ts',
     },
   },
 })

@@ -3,7 +3,7 @@ import express, { Express, Request, Response } from 'express';
 import sqlite3, { Database } from 'better-sqlite3';
 
 const app: Express = express();
-const db: Database = sqlite3('gfeedback.db', { verbose: console.log });
+const db: Database = sqlite3('afeedback.db', { verbose: console.log });
 
 console.log("Hello World!");
 
@@ -28,7 +28,7 @@ app.use(express.static(publicDirectoryPath));
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function formhandlermelding(request: Request, response: Response): any {
     console.log(request.body);
-    const msql = db.prepare('INSERT INTO feedback (gfmelding) VALUES (?)');
+    const msql = db.prepare('INSERT INTO feedback (afmelding) VALUES (?)');
     msql.run(request.body.tilbakemelding);
 
     response.send("feedback sendt");
