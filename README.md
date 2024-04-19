@@ -1,15 +1,14 @@
-## Important info
+### Important info
 
- == the ts version does not fully work! ==
-
- == sending the form to the database does not work! ==
-
- # Update
-
- == the backend is now running however it seams that the backend is not working. so it still deosn't work sending the form to the db! ==
+ == the backend is now running however sending the form to the database in the ts/main version does not work! ==
 
  == when cloneing this repo you need to run `npm run build` to get the dist folder! ==
 
+ ## Update
+
+ == since the ts version doesn't fully work i am planning on moving the project over from vite.js to next.js. this means that the backend will most likely not use express.js. ==
+
+ == for now the next.js version will be in a seperate folder, altough it wil eventually replace the main version ==
 
 # annonymus-feedback
 
