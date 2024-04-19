@@ -1,5 +1,7 @@
 ### Important info
 
+# will try with just ts no framework like react!
+
  == the backend is now running however sending the form to the database in the ts/main version does not work! ==
 
  == when cloneing this repo you need to run `npm run build` to get the dist folder! ==
