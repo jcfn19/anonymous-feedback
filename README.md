@@ -8,7 +8,7 @@
 
  == since the ts version doesn't fully work i am planning on moving the project over from vite.js to next.js. this means that the backend will most likely not use express.js. ==
 
- == for now the next.js version will be in a seperate folder, altough it wil eventually replace the main version ==
+ == for now the next.js version will be in a seperate folder, altough it wil eventually replace the main/ts version ==
 
 # annonymus-feedback
 
