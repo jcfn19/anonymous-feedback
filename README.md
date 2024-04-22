@@ -1,35 +1,37 @@
-### Important info
-
-# will try with just ts no framework like react!
-
- == the backend is now running however sending the form to the database in the ts/main version does not work! ==
-
- == when cloneing this repo you need to run `npm run build` to get the dist folder! ==
-
- ## Update
-
- == since the ts version doesn't fully work i am planning on moving the project over from vite.js to next.js. this means that the backend will most likely not use express.js. ==
-
- == for now the next.js version will be in a seperate folder, altough it wil eventually replace the main/ts version ==
-
 # annonymus-feedback
 
- a vite typescript app to get anonymous user feedback that uses better-sqlite3 and express.js.
- 
- # what this repo contains
- 
- this repo contains two folders. the vite-ts/main version is in the afeedback folder, there is a working vanilla js version in the vanilla folder.
+a typescript app to get annonymus user feedback that uses better-sqlite3 and express.js
 
- # database
+## what this repo contains
 
- this is the database structure
+this repo contains two folders. the main ts version and one with a vanilla js version
 
- | id | feedback |
- 
- | -----/----- | -----/----- |
- 
- | -----/----- | -----/----- |
- 
- | -----/----- | -----/----- |
+## how to run the ts version
 
- the actual database waries from folder to folder this is just an example of the database structure.
+redirect to the dist folder and run ` node index.js ` incase this doesn't work make sure you have installed the npm packages.
+
+the npm packages are as follows, you can check if you have them installed via running ` npm list --depth=0 `
+
+```console
+@types/better-sqlite3@7.6.10
+@types/express@4.17.21
+@types/node@20.12.7
+better-sqlite3@9.5.0
+express@4.19.2
+typescript@5.4.5
+```
+
+ounce installed if it still doesn't work run ` npx tsc  `
+
+## database structure
+
+the database structure looks like this
+
+| id          | feedback    |
+| ----------- | ----------- |
+| integer     | text        |
+| primary key |             |
+| autoincrement |           |
+|             | not null    |
+
+the actual database waries from folder to folder this is just an example of the database structure.
