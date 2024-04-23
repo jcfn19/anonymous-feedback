@@ -3,6 +3,10 @@ const app = express();
 import sqlite3 from 'better-sqlite3';
 const db = sqlite3('afeedback.db', {verbose: console.log})
 
+const currentTime = new Date();
+
+let tid = currentTime.getHours() + ":" + currentTime.getMinutes() + ":" + currentTime.getSeconds();
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -26,8 +30,8 @@ console.log("Hellow world!")
 
 function formhandlermelding(request, response) {
     console.log(request.body);
-    const msql = db.prepare('INSERT INTO amessage (afeedbackm) VALUES (?)');
-    const info = msql.run(request.body.tilbakemelding);
+    const msql = db.prepare('INSERT INTO amessage (afeedbackm, atime) VALUES (?, ?)');
+    const info = msql.run(request.body.tilbakemelding, tid);
 
     response.send("feedback sendt")
 }

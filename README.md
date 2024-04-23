@@ -27,11 +27,11 @@ ounce installed if it still doesn't work run ` npx tsc  `
 
 the database structure looks like this
 
-| id          | feedback    |
-| ----------- | ----------- |
-| integer     | text        |
-| primary key |             |
-| autoincrement |           |
-|             | not null    |
+| id          | feedback    | time        |
+| ----------- | ----------- | ----------- |
+| integer     | text        | text        |
+| primary key |             |             |
+| autoincrement |           |             |
+|             | not null    |             |
 
 the actual database waries from folder to folder this is just an example of the database structure.
