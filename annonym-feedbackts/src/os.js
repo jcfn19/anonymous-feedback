@@ -1,19 +1,18 @@
 // to get os will use json or map
 
-// var os = window.navigator.userAgent
+// async () => {
+//     const os = window.navigator.userAgent
 
-// console.log(os);
+//     console.log(os);
 
-// var data = {os};
-
-// fetch("/sendjson", {
+//     const response = await fetch('http://localhost:3000/', {
 //     method: 'POST', 
-//     headers: {
-//         'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify(data), 
-// })
-// .then(response => response.json())
-// .then(data => console.log(data))
-// .catch((error) => console.error('Error:', error));
-// console.log(data);
+//         headers: {
+//             'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify(os),
+//     })
+//     const data = await response.json();
+//     console.log(data);
+//     return data;
+// }
