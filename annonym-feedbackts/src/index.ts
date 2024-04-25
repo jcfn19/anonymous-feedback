@@ -28,15 +28,18 @@ app.use(express.static(publicDirectoryPath))
 
 console.log("Hellow world!")
 
-function formhandlermelding(request, response) {
+function formhandlerfeedback(request, response) {
     console.log(request.body);
-    const msql = db.prepare('INSERT INTO amessage (afeedbackm, atime) VALUES (?, ?)');
-    const info = msql.run(request.body.tilbakemelding, tid);
+
+    for (let i = 0; i < request.body.jsonform.length; i++) {
+        const msql = db.prepare('INSERT INTO amessage (afeedbackm, atime, aos, aurl) VALUES (?, ?, ?, ?)');
+        const info = msql.run(request.body.feedback, tid, request.body.jsonform, request.body.currenturl);
+    }
 
     response.send("feedback sendt")
 }
 
-app.post('/feedbackm', formhandlermelding);
+app.post('/sendmap', formhandlerfeedback);
 
 app.listen(3000, () => {
     console.log('Server is up on port 3000')

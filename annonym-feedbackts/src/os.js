@@ -1,18 +1,27 @@
 // to get os will use json or map
 
-// async () => {
-//     const os = window.navigator.userAgent
+const os = window.navigator.userAgent
 
-//     console.log(os);
+const url = window.location.href
 
-//     const response = await fetch('http://localhost:3000/', {
-//     method: 'POST', 
-//         headers: {
-//             'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify(os),
-//     })
-//     const data = await response.json();
-//     console.log(data);
-//     return data;
-// }
+let osmap = new Map();
+let osarray = [os];
+let urlarray = [url];
+
+function sendjson() {
+    const body = {
+        jsonform: osarray,
+        feedback: document.querySelector("#feedbackid").value,
+        currenturl: urlarray,
+    }
+
+    fetch("/sendmap", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(body)
+    })
+}
+
+document.querySelector("#submitbtn").addEventListener("click", sendjson);
