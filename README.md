@@ -1,10 +1,10 @@
 # annonymus-feedback
 
-a typescript app to get annonymus user feedback that also gets the time, os and url the feedback was sent. the app uses better-sqlite3 and express.js
+a typescript app to get annonymus user feedback that also gets the time, os and url. the app uses better-sqlite3 and express.js
 
 ## what this repo contains
 
-this repo contains two folders. the main ts version and one with a vanilla js version
+this repo contains two folders. the main ts version and one with a vanilla js version (i am unsure if the vanilla js version works).
 
 ## how to run the ts version
 
@@ -34,4 +34,4 @@ the database structure looks like this
 | autoincrement |           |             |             |             |
 |             | not null    |             |             |             |
 
-the actual database waries from folder to folder this is just an example of the database structure.
+the actual database waries from the two folders/versions.

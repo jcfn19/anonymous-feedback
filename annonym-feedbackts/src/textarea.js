@@ -1,0 +1,1 @@
+// counter for the character limit
