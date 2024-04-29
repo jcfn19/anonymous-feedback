@@ -1,15 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="os.js" defer></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<script src="os.js" defer></script>
+<link rel="stylesheet" href="index.css">
+<script src="textarea.js"></script>
 </head>
 <body>
-    <p>test</p>
-    
-    <input type="text" id="feedbackid" placeholder='feedback'/>
-    <button id="submitbtn">send inn</button>
+
+<div id="container">
+    <textarea type="text" id="feedbackid" placeholder='feedback' rows="4" cols="50" maxlength="4000"></textarea>
+</div>
+<button id="submitbtn">send inn</button>
+<p id="textareainfo">drag the bottom right corner to enlarge</p>
+<!-- <div id="the-count">
+    <span id="current">0</span>
+    <span id="maximum">/ 4000 </span>
+</div> -->
 </body>
 </html>
