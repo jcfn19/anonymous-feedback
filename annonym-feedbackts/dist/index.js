@@ -11,7 +11,7 @@ function rootRoute(request, response) {
     const info = sql.all();
     response.send(info);
 }
-app.get('/feedbackjson', rootRoute);
+app.get('/feedbackrawjson', rootRoute);
 import { fileURLToPath } from 'url';
 import path, { dirname } from 'path';
 const __filename = fileURLToPath(import.meta.url);

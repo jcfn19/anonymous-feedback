@@ -16,7 +16,7 @@ function rootRoute(request, response) {
     response.send(info);
 }
 
-app.get('/feedbackjson', rootRoute)
+app.get('/feedbackrawjson', rootRoute)
 
 import { fileURLToPath } from 'url';
 import path, { dirname } from 'path';

@@ -1,0 +1,15 @@
+.firstrows{
+    border: 2px black;
+    border-style: solid;
+}
+
+.secoundrows{
+    border: 2px black;
+    /* background-color: darkgreen; */
+    border-style: solid;
+}
+
+/* #utskrift{
+    border: 2px black;
+    border-style: solid;
+} */
