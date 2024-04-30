@@ -22,8 +22,14 @@ console.log("Hellow world!");
 function formhandlerfeedback(request, response) {
     console.log(request.body);
     for (let i = 0; i < request.body.jsonform.length; i++) {
+        // const qsql = db.prepare('SELECT * FROM amessage')
+        // if (request.body.feedback == qsql) {
+        //     event.preventDefault();
+        //     console.log("you cant enter the same message")
+        // } else {
         const msql = db.prepare('INSERT INTO amessage (afeedbackm, atime, aos, aurl) VALUES (?, ?, ?, ?)');
         const info = msql.run(request.body.feedback, tid, request.body.jsonform, request.body.currenturl);
+        // }
     }
     response.send("feedback sendt");
 }
