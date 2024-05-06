@@ -1,3 +1,8 @@
+// to prevent spaming of the same button
+
+// Event.preventDefault() //will need if statement for submit
+// this.countUpdate.emit((<HTMLTextAreaElement>e.target).value./*...*/)
+
 // to get os will use json or map
 
 const os = window.navigator.userAgent
