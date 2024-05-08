@@ -1,8 +1,3 @@
-// to prevent spaming of the same button
-
-// Event.preventDefault() //will need if statement for submit
-// this.countUpdate.emit((<HTMLTextAreaElement>e.target).value./*...*/)
-
 // to get os will use json or map
 
 const os = window.navigator.userAgent
@@ -13,20 +8,37 @@ let osmap = new Map();
 let osarray = [os];
 let urlarray = [url];
 
-function sendjson() {
-    const body = {
-        jsonform: osarray,
-        feedback: document.querySelector("#feedbackid").value,
-        currenturl: urlarray,
-    }
+// if statement to prevent spaming of the same button
 
-    fetch("/sendmap", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(body)
-    })
+if (sendjson.body.feedback == null) {
+    function sendjson() {
+        const body = {
+            jsonform: osarray,
+            feedback: document.querySelector("#feedbackid").value,
+            currenturl: urlarray,
+        }
+    
+        fetch("/sendmap", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(body)
+        })
+    }
+    
+    document.querySelector("#submitbtn").addEventListener("click", sendjson);
+} else {
+    return console.log("you have already submitted");
 }
 
-document.querySelector("#submitbtn").addEventListener("click", sendjson);
+// Event.preventDefault() //will need if statement for submit
+// this.countUpdate.emit((<HTMLTextAreaElement>e.target).value./*...*/)
+
+// function checkboxClick(event) {
+//     let warn = "preventDefault() won't let you check this!<br>";
+//     document.getElementById("output-box").innerHTML += warn;
+//     event.preventDefault();
+// }
+
+// document.getElementById("submitbtn").disabled = false;
